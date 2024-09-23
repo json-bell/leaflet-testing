@@ -3,6 +3,9 @@ import { useEffect } from "react";
 
 export function CurrCenter({ position, setPosition }) {
   const map = useMap();
+  useEffect(() => {
+    map.locate();
+  }, []);
   useMapEvents({
     drag: () => {
       setPosition(map.getCenter());
